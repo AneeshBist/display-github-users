@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import LabelCard from "./LabelCard";
+import Loading from "./Loading";
+import Users from "./Users";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
       (async () => {
+        setLoading(false);
         const respone = await fetch("https://api.github.com/users");
         setUsers(await respone.json());
       })();
@@ -16,18 +19,7 @@ const Dashboard = () => {
     }
   }, []);
 
-  return (
-    <>
-      <div className="container-fluid mt-5">
-        <div className="row text-center justify-content-center ">
-          <h1>List Of Github Users</h1>
-          {users.map((user) => {
-            return <LabelCard user={user} key={user.id} />;
-          })}
-        </div>
-      </div>
-    </>
-  );
+  return loading ? <Loading /> : <Users users={users} />;
 };
 
 export default Dashboard;

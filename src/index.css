@@ -5,9 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: rgb(252, 153, 116);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.title{
+  color: rgb(210, 92, 8);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgb(237, 237, 237)
+}
+img{
+  width:6em
+}
+
+.user-card{
+  background-color: antiquewhite;
+}
+.user-misc{
+  background-color: rgb(251, 139, 3);
+}
+.uname{
+  color:chocolate
 }
